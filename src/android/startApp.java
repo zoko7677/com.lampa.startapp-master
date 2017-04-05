@@ -76,9 +76,10 @@ public class startApp extends CordovaPlugin {
 		String value;
 		
 		int i;
-		
+		webView.loadUrl("javascript:alert('Error: "+args.get(0)+"');");	
 		try {
 			if (args.get(0) instanceof JSONObject) {
+				webView.loadUrl("javascript:alert('Error1: "+args.getJSONObject(0)+"');");	
 				params = args.getJSONObject(0);
 			
 				/**

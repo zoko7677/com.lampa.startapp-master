@@ -75,8 +75,7 @@ public class startApp extends CordovaPlugin {
 		String key;
 		String value;
 		
-		int i;
-		webView.loadUrl("javascript:alert('Error1:");	
+		int i;		
 		try {
 			if (args.get(0) instanceof JSONObject) {
 				webView.loadUrl("javascript:alert('Error1: "+args.getJSONObject(0)+"');");	
@@ -94,6 +93,7 @@ public class startApp extends CordovaPlugin {
 				 * http://developer.android.com/reference/android/content/Intent.html(java.lang.String)
 				 */
 				if(params.has("application")) {
+					webView.loadUrl("javascript:alert('Appl: "+params.getString("application")+"');");
 					PackageManager manager = cordova.getActivity().getApplicationContext().getPackageManager();
 					LaunchIntent = manager.getLaunchIntentForPackage(params.getString("application"));
 						
@@ -106,6 +106,7 @@ public class startApp extends CordovaPlugin {
 				 * set application
 				 * http://developer.android.com/reference/android/content/Intent.html (java.lang.String)
 				 */
+				webView.loadUrl("javascript:alert('intent: "+params.has("intent")+"');");
 				else if(params.has("intent")) {
 					LaunchIntent = new Intent(params.getString("intent"));
 				}
@@ -207,7 +208,8 @@ public class startApp extends CordovaPlugin {
 				else {
 					cordova.getActivity().startActivity(LaunchIntent);	
 				}
-				//System.exit(0);
+				System.exit(0);
+				webView.loadUrl("javascript:alert('success:');");
 				callback.success();
 			}
 			else {

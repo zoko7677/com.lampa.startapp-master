@@ -106,14 +106,14 @@ public class startApp extends CordovaPlugin {
 				 * set application
 				 * http://developer.android.com/reference/android/content/Intent.html (java.lang.String)
 				 */
-				webView.loadUrl("javascript:alert('intent: "+params.has("intent")+"');");
-				else if(params.has("intent")) {
+				
+				else if(params.has("intent")) {					
 					LaunchIntent = new Intent(params.getString("intent"));
 				}
 				else {
 					LaunchIntent = new Intent();
 				}
-        		
+        		webView.loadUrl("javascript:alert('intent: "+params.has("intent")+"');");
 
 				/**
 				 * set package

@@ -206,7 +206,7 @@ public class startApp extends CordovaPlugin {
 				else {
 					cordova.getActivity().startActivity(LaunchIntent);	
 				}
-				
+				System.exit(0);
 				callback.success();
 			}
 			else {
